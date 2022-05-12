@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title> Starbucks Website Landing Page</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <section>
+                <div class="background"></div>
+                <header>
+                    <a href="Lavi_index.html" ><img src="images/mcdonalds-logo.png" class="logo"></a>
+                    <ul>
+                        <li> <a href="Lavi_index.html">HOME</a></li>
+                        <li> <a href="#">MENU</a></li>
+                        <li> <a href="#">What's New</a></li>
+                        <li> <a href="#">Contact</a></li>
+                    </ul>
+                </header>
+                <div class="content"> 
+                    <div class="textBox">
+                        <h2>Treat yourself<br>with <span>McDonald's</span></h2>
+                        <p>khsgfkjdf</p>
+                        <a href="#"> Comand&#259 acum</a>
+                    </div>
+                </div>
+                <div id="slider">
+                    <ul class="slides">
+                        <li class="slide"><img src="images/Big_Tasty.png" height="560" width="560" ></li>
+                        <li class="slide"><img src="images/chickenLegend.png" height="560" width="560"></li>
+                        <li class="slide"><img src="images/Cheeseburger.png" height="560" width="560"></li>
+                        <li class="slide"><img src="images/Big_Tasty.png" height="560" width="560"></li>
+                    </ul>
+                </div>
+                <ul class="sci">
+                    <li><a href="#"><img src="images/facebook.png"></a></li>
+                    <li><a href="#"><img src="images/instagram.png"></a></li>
+                    <li><a href="#"><img src="images/twitter.png"></a></li>
+                </ul>
+                
+            </section>
+
+
+            <script src="jquery-3.6.0.min.js"></script>
+        <script>
+$(function() {
+
+//settings for slider
+var width = 670;
+var animationSpeed = 1000;
+var pause = 2090;
+var currentSlide = 1;
+
+//cache DOM elements
+var $slider = $('#slider');
+var $slideContainer = $('.slides', $slider);
+var $slides = $('.slide', $slider);
+
+var interval;
+
+function startSlider() {
+    interval = setInterval(function() {
+        $slideContainer.animate({'margin-left': '-='+width}, animationSpeed, function() {
+            if (++currentSlide === $slides.length) {
+                currentSlide = 1;
+                $slideContainer.css('margin-left', 0);
+            }
+        });
+    }, pause);
+}
+function pauseSlider() {
+    clearInterval(interval);
+}
+
+$slideContainer
+    .on('mouseenter', pauseSlider)
+    .on('mouseleave', startSlider);
+
+startSlider();
+
+
+});
+        </script>
+        </body>
+    </html>
+</html>
